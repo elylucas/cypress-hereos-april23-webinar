@@ -4,9 +4,9 @@ import {
   Power as PowerDataModel,
   User as UserDataModel,
   Prisma,
-} from '../../../server/node_modules/@prisma/client';
+} from '../../../node_modules/@prisma/client';
 
-export * as Prisma from '../../../server/node_modules/@prisma/client';
+export * as Prisma from '../../../node_modules/@prisma/client';
 
 // export class HeroViewModel implements HeroDataModel {
 //   id: number;
