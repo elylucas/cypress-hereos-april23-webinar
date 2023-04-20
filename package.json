@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "workspaces": [
+    "client-react",
+    "server"
+  ],
   "scripts": {
     "prebuild": "rimraf ./client-react/dist && rimraf ./server/dist",
     "build": "npm run build:client-react && npm run build:server",
     "build:client-react": "npm --prefix ./client-react run build",
     "build:server": "npm --prefix ./server run build",
-    "postinstall": "npm --prefix ./client-react install && npm --prefix ./server install",
     "start:ci": "concurrently \"npm run start:ci:client-react\" \"npm run start:ci:server\"",
     "start:ci:client-react": "npm --prefix ./client-react run preview",
     "start:ci:server": "npm --prefix ./server run prisma:resetdb && npm --prefix ./server run start",
