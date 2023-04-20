@@ -28,7 +28,7 @@
   "homepage": "https://github.com/elylucas/cypress-heroes#readme",
   "devDependencies": {
     "concurrently": "^7.6.0",
-    "cypress": "^12.3.0",
+    "cypress": "^12.10.0",
     "rimraf": "^4.1.0"
   }
 }
