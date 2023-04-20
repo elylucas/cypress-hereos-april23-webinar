@@ -8,35 +8,55 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  build-and-run-tests:
+  install:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install dependencies & Build
+      - name: Cypress install
         uses: cypress-io/github-action@v5
         with:
-          # just build and perform install
-          build: npm run build
           runTests: false
-      - name: CT Tests
-        uses: cypress-io/github-action@v5
+          build: npm run build
+      - name: Save build folder
+        uses: actions/upload-artifact@v3
         with:
-          install: false
-          command: npm run test:ct:ci
-          record: true
-      - name: Start Client & Server
-        run: npm run start:ci &
-      - name: E2E Tests
-        uses: cypress-io/github-action@v5
-        with:
-          install: false
-          command: npm run test:e2e:ci
-          record: true
-          wait-on: 'http://localhost:3000, http://localhost:3001/heroes'      
-      - name: API Tests
-        uses: cypress-io/github-action@v5
-        with:
-          install: false
-          command: npm run test:api:ci
-          wait-on: 'http://localhost:3001/heroes'
+          name: build-folders
+          if-no-files-found: error
+          path: |
+            client-react/dist
+            server/dist
+        
+
+  # build-and-run-tests:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #     - name: Install dependencies & Build
+  #       uses: cypress-io/github-action@v5
+  #       with:
+  #         # just build and perform install
+  #         build: npm run build
+  #         runTests: false
+  #     - name: CT Tests
+  #       uses: cypress-io/github-action@v5
+  #       with:
+  #         install: false
+  #         command: npm run test:ct:ci
+  #         record: true
+  #     - name: Start Client & Server
+  #       run: npm run start:ci &
+  #     - name: E2E Tests
+  #       uses: cypress-io/github-action@v5
+  #       with:
+  #         install: false
+  #         command: npm run test:e2e:ci
+  #         record: true
+  #         wait-on: 'http://localhost:3000, http://localhost:3001/heroes'      
+  #     - name: API Tests
+  #       uses: cypress-io/github-action@v5
+  #       with:
+  #         install: false
+  #         command: npm run test:api:ci
+  #         wait-on: 'http://localhost:3001/heroes'
