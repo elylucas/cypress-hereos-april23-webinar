@@ -37,14 +37,13 @@ jobs:
         with:
           name: build-folders
           path: ./
-      - name: list dir
-        run: ls -R
+      - name: list client-react/dist 
+        run: ls -R client-react/dist
       - name: list server/dist
-        run: ls -la server/dist        
+        run: ls -R server/dist        
       - name: Run CT Tests
         uses: cypress-io/github-action@v5
         with:
-          install: false
           command: npm run test:ct:ci
           record: false
 
