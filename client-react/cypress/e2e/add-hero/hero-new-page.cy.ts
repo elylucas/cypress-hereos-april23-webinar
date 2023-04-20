@@ -1,4 +1,4 @@
-import { Prisma } from '../support/models';
+import { Prisma } from '../../support/models';
 
 describe('hero new page', () => {
   beforeEach(() => {
