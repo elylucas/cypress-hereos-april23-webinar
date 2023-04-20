@@ -36,11 +36,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-folders
-          path: |
-            client-react/dist
-            server/dist
-      - name: list client-react/dist
-        run: ls -la client-react/dist
+          path: ./
+      - name: list dir
+        run: ls -R
       - name: list server/dist
         run: ls -la server/dist        
       - name: Run CT Tests
