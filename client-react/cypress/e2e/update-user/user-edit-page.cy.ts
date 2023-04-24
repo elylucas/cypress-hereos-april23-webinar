@@ -1,6 +1,6 @@
 import { Prisma } from '../../support/models';
 
-describe('hero edit page', () => {
+describe('user edit page', () => {
   beforeEach(() => {
     cy.createHero().then((hero) => {
       cy.visit(`/heroes/${hero.id}/edit`);

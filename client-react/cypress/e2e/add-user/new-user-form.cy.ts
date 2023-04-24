@@ -1,6 +1,6 @@
 import { Prisma } from '../../support/models';
 
-describe('hero new page', () => {
+describe('new user page', () => {
   beforeEach(() => {
     //intercept the request so we can get the new hero's id to delete it later
     cy.intercept({
@@ -21,7 +21,7 @@ describe('hero new page', () => {
       cy.visit(`/heroes/new`);
     });
 
-    it('adding hero should save and display on home page', () => {
+    it('adding user should save and display on user list page', () => {
       // cy.get<Prisma.Hero>('@newHero').then((newHero) => {
       cy.get('[data-cy=nameInput]').type('New Test Hero');
       cy.get('[data-cy=priceInput]').clear().type('12');

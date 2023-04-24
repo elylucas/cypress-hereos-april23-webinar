@@ -1,6 +1,6 @@
 import { Prisma } from '../../support/models';
 
-describe('hero edit page', () => {
+describe('user delete via details', () => {
   beforeEach(() => {
     cy.createHero().then((hero) => {
       cy.visit(`/heroes/${hero.id}/edit`);
@@ -21,7 +21,7 @@ describe('hero edit page', () => {
       });
     });
 
-    it('should contain hero information', () => {
+    it('should contain user information', () => {
       cy.get<Prisma.Hero>('@newHero').then((newHero) => {
         cy.get('[data-cy=price]').should('contain.text', `$${newHero.price}`);
         cy.get('[data-cy=fans]').should('contain.text', newHero.fans);
@@ -30,7 +30,7 @@ describe('hero edit page', () => {
       });
     });
 
-    it('editing hero should save and display on home page', () => {
+    it('deleting user should remove from list page', () => {
       cy.get<Prisma.Hero>('@newHero').then((newHero) => {
         cy.get('[data-cy=nameInput]').type(' edited');
         cy.get('[data-cy=priceInput]').clear().type('12');
