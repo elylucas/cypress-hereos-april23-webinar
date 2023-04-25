@@ -24,7 +24,7 @@ describe('hero new page', () => {
     it('adding hero should save and display on home page', () => {
       // cy.get<Prisma.Hero>('@newHero').then((newHero) => {
       cy.get('[data-cy=nameInput]').type('New Test Hero');
-      cy.get('[data-cy=priceInput]').clear().type('12');
+      cy.get('[data-cy=priceInput]').clear().type('12a');
       cy.get('[data-cy=fansInput]').clear().type('34');
       cy.get('[data-cy=savesInput]').clear().type('56');
       cy.get('[data-cy=powersSelect]').select(['Fireball', 'Super Strength']);
@@ -48,7 +48,7 @@ describe('hero new page', () => {
 
     it('should be able to upload new avatar', () => {
       cy.get('[data-cy=nameInput]').type('New Test Hero');
-      cy.get('[data-cy=priceInput]').clear().type('12');
+      cy.get('[data-cy=priceInput]').clear().type('12a');
       cy.get('[data-cy=fansInput]').clear().type('34');
       cy.get('[data-cy=savesInput]').clear().type('56');
       cy.get('[data-cy=powersSelect]').select(['Fireball', 'Super Strength']);
