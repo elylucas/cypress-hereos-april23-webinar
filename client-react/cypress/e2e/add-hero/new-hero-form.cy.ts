@@ -62,7 +62,7 @@ describe('hero new page', () => {
           .as('heroCard')
           .find('img')
           .should('have.attr', 'src')
-          .and('include', `heroes/${req.response.body.id}/avatara`);
+          .and('include', `heroes/${req.response.body.id}/avatar`);
       });
     });
   });
