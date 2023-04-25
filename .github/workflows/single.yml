@@ -2,7 +2,7 @@ name: Single Cypress Tests
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/5 * * * *"
 
 env:
   VITE_API_URL: http://localhost:3001
@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: someFeature
       - name: Cypress install
         uses: cypress-io/github-action@v5
         with:
