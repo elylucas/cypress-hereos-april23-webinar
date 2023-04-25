@@ -1,6 +1,6 @@
 name: Cypress Tests
 
-on: [push]
+on: push
 
 env:
   VITE_API_URL: http://localhost:3001
@@ -29,6 +29,10 @@ jobs:
   component-tests:
     runs-on: ubuntu-latest
     needs: install
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -47,7 +51,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2, 3, 4, 5, 6]
+        containers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
