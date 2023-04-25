@@ -1,4 +1,4 @@
-name: Single Cypress Tests
+name: Parallel Cypress Tests
 
 on: [push]
 
