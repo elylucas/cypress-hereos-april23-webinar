@@ -49,6 +49,7 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           command: npm run test:ct:ci
+          tag: parallel2
   end-to-end-tests:
     runs-on: ubuntu-latest
     needs: install
@@ -70,3 +71,4 @@ jobs:
           start: npm run start:ci
           command: npm run test:e2e:ci
           wait-on: 'http://localhost:3000, http://localhost:3001/heroes'
+          tag: parallel2
