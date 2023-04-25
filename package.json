@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "npm --prefix ./client-react run build && npm --prefix ./server run build",
-    "start:ci": "concurrently \"npm --prefix ./client-react run preview\" \"npm --prefix ./server run start\"",
+    "start:ci": "concurrently \"npm --prefix ./client-react run preview\" \"npm --prefix ./server run start:ci\"",
     "test:e2e:ci": "npm --prefix ./client-react run test:e2e:ci",
     "test:ct:ci": "npm --prefix ./client-react run test:ct:ci"
   },
