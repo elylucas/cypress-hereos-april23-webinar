@@ -1,6 +1,8 @@
 name: Single Cypress Tests
 
-on: [push]
+on:
+  schedule:
+    - cron: "0 * * * *"
 
 env:
   VITE_API_URL: http://localhost:3001
