@@ -8,8 +8,10 @@
     "prebuild": "rimraf dist",
     "build": "tsc && vite build",
     "preview": "vite preview --host",
-    "test:e2e:ci": "npx cypress run --record --group e2e",
-    "test:ct:ci": "npx cypress run --component --record --group ct"
+    "test:e2e:ci": "npx cypress run --record --group e2e --tag single,e2e",
+    "test:e2e:ci:parallel": "npx cypress run --record --group e2e --parallel --tag parallel,e2e",
+    "test:ct:ci": "npx cypress run --component --record --group ct --tag single,ct",
+    "test:ct:ci:parallel": "npx cypress run --component --record --group ct --parallel --tag parallel,ct"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.22.0",
