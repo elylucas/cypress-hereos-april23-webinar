@@ -2,7 +2,7 @@ name: Cached Parallel Cypress Tests
 
 on:
   schedule:
-    - cron: "5 * * * *"
+    - cron: "*/30 * * * *"
 
 env:
   VITE_API_URL: http://localhost:3001
