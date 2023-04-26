@@ -18,5 +18,5 @@ export default defineConfig({
       bundler: 'vite',
     },
   },
-  videoUploadOnPasses: false
+  video: false
 });
