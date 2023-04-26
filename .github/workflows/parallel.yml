@@ -40,6 +40,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: someFeature
       - name: Download the build folders
         uses: actions/download-artifact@v3
         with:
@@ -61,6 +63,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: someFeature
       - name: Download the build folders
         uses: actions/download-artifact@v3
         with:
